@@ -14,14 +14,17 @@ pipeline {
             }
         }
 
+        stage('Stop Old Container') {
+            steps {
+                sh 'docker stop flask-app || true'
+                sh 'docker rm flask-app || true'
+            }
+        }
+
         stage('Run Docker Container') {
             steps {
-                sh '''
-                docker stop flask-app || true
-                docker rm flask-app || true
-                docker run -d -p 5000:5000 --name flask-app flask-app
-                '''
+                sh 'docker run -d -p 5000:5000 --name flask-app flask-app'
             }
         }
     }
-i}
+}
