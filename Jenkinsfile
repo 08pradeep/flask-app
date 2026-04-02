@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git branch: 'main', url: 'https://github.com/yourusername/flask-docker-app.git'
+                git branch: 'main', url: 'git@github.com:08pradeep/flask-app.git'
             }
         }
 
@@ -24,4 +24,4 @@ pipeline {
             }
         }
     }
-}
+i}
